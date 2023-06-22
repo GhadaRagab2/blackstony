@@ -8893,7 +8893,7 @@ img {
 }
 
 .site-footer .upper-footer {
-    background-color: #000;
+    background-color: #eee;
     padding: 100px 0;
 }
 
@@ -8942,7 +8942,7 @@ img {
 .site-footer .widget .footer-logo {
     font-size: 24px;
     font-size: 1.6rem;
-    color: #fff;
+    color: #000;
     text-transform: uppercase;
     margin: 0 0 1em;
     padding-bottom: 0.5em;
@@ -17504,6 +17504,130 @@ img {
 }
 
 
+/* ---Contact Main Page--- */
+
+.qoutes {
+    padding: 2.5rem 0;
+}
+
+.contact-main-page {
+    padding: 30px 0 80px;
+    /* ---Contact Form Area--- */
+}
+
+.contact-main-page .contact-page-side-content {
+    background-color: #f5f5f5;
+    padding: 30px 30px 19px;
+    margin-top: 100px;
+}
+
+@media (max-width: 479px) {
+    .contact-main-page .contact-page-side-content {
+        padding: 25px 30px 19px;
+    }
+}
+
+.contact-main-page .contact-page-side-content .contact-page-message {
+    margin-bottom: 0;
+    padding-bottom: 25px;
+}
+
+.contact-main-page .contact-page-side-content .single-contact-block {
+    padding-bottom: 3px;
+    margin-bottom: 27px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.contact-main-page .contact-page-side-content .single-contact-block:last-child {
+    border-bottom: none;
+}
+
+.contact-main-page .contact-page-side-content .single-contact-block h4 {
+    margin-bottom: 0;
+    padding-bottom: 25px;
+}
+
+.contact-main-page .contact-page-side-content .single-contact-block p {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+
+.contact-main-page .contact-page-side-content .single-contact-block.last-child>h4 {
+    padding-bottom: 20px;
+}
+
+.contact-main-page .contact-page-title {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 500;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 479px) {
+    .contact-main-page .contact-page-title {
+        font-size: 25px;
+    }
+}
+
+.contact-main-page .contact-form-content {
+    margin-top: 95px;
+}
+
+.contact-main-page .contact-form-content .contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-main-page .contact-form-content .contact-form .form-group.form-group-2 {
+    margin-bottom: 25px;
+}
+
+.contact-main-page .contact-form-content .contact-form .form-group label {
+    display: block;
+    font-size: 15px;
+    line-height: 29px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    cursor: text;
+}
+
+.contact-main-page .contact-form-content .contact-form .form-group input {
+    background-color: #ffffff;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    outline: none;
+    border: 1px solid #e5e5e5;
+    padding-left: 20px;
+}
+
+.contact-main-page .contact-form-content .contact-form .form-group textarea {
+    background-color: #ffffff;
+    width: 100%;
+    outline: none;
+    border: 1px solid #e5e5e5;
+    padding-left: 20px;
+    line-height: 50px;
+    height: 200px;
+}
+
+.contact-main-page .contact-form-content .contact-form .form-group .kenne-contact-form_btn {
+    line-height: 12px;
+    display: inline-block;
+    padding: 16px 30px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 12px;
+    background-color: #242424;
+    border: 1px solid #242424;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+
+/*----------------------------------------*/
+
+
 /*--------------------------------------------------------------
 #7.1	event-about-conference
 --------------------------------------------------------------*/
@@ -20663,6 +20787,10 @@ img {
     }
 }
 
+.sermons-title {
+    text-align: center;
+}
+
 @media (max-width: 767px) {
     .muslim-sermons {
         padding-bottom: 60px;
@@ -21615,12 +21743,12 @@ img {
     color: #e4af4e;
 }
 
-.muslim-blog-section .newsletter,
+.muslim-site-footer .newsletter,
 .seo-blog-section .newsletter {
     margin-bottom: 15px;
 }
 
-.muslim-blog-section .newsletter h5,
+.muslim-site-footer.newsletter h5,
 .seo-blog-section .newsletter h5 {
     font-size: 16px;
     font-size: 1.06667rem;
@@ -21630,12 +21758,12 @@ img {
     margin: 0 0 1em;
 }
 
-.muslim-blog-section .newsletter-form div,
+.muslim-site-footer .newsletter-form div,
 .seo-blog-section .newsletter-form div {
     position: relative;
 }
 
-.muslim-blog-section .newsletter-form input,
+.muslim-site-footer .newsletter-form input,
 .seo-blog-section .newsletter-form input {
     height: 45px;
     padding: 6px 120px 6px 15px;
@@ -21645,7 +21773,7 @@ img {
     box-shadow: none;
 }
 
-.muslim-blog-section .newsletter-form button,
+.muslim-site-footer .newsletter-form button,
 .seo-blog-section .newsletter-form button {
     font-family: "Poppins", sans-serif;
     background-color: #e4af4e;

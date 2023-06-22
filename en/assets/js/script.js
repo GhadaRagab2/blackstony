@@ -1,13 +1,13 @@
 (function($) {
 
-	"use strict";
+    "use strict";
 
 
     /*------------------------------------------
         = FUNCTIONS
     -------------------------------------------*/
     // Check ie and version
-    function isIE () {
+    function isIE() {
         var myNav = navigator.userAgent.toLowerCase();
         return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1], 10) : false;
     }
@@ -31,14 +31,14 @@
             if (navbar.hasClass("slideInn")) {
                 navbar.removeClass("slideInn");
             }
-            return false;            
+            return false;
         })
 
         navLinks.on("click", function() {
             if (navbar.hasClass("slideInn")) {
                 navbar.removeClass("slideInn");
             }
-            return false;            
+            return false;
         })
     }
 
@@ -75,7 +75,7 @@
             menuItemWidthSubMenu.on("click", function(e) {
                 var $this = $(this);
                 $this.siblings().slideToggle();
-                 e.preventDefault();
+                e.preventDefault();
                 e.stopImmediatePropagation();
             })
         } else if (windowWidth > 991) {
@@ -118,13 +118,13 @@
         var topGap = $topGap;
 
         links.on("click", function() {
-            if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
+            if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
                 var target = $(this.hash);
-                target = target.length ? target : $("[name=" + this.hash.slice(1) +"]");
+                target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
                 if (target.length) {
                     $("html, body").animate({
-                    scrollTop: target.offset().top - topGap
-                }, 1000, "easeInOutExpo");
+                        scrollTop: target.offset().top - topGap
+                    }, 1000, "easeInOutExpo");
                     return false;
                 }
             }
@@ -139,9 +139,9 @@
         if ($(".parallax").length) {
             $(".parallax").each(function() {
                 var height = $(this).position().top;
-                var resize     = height - $(window).scrollTop();
-                var doParallax = -(resize/5);
-                var positionValue   = doParallax + "px";
+                var resize = height - $(window).scrollTop();
+                var doParallax = -(resize / 5);
+                var positionValue = doParallax + "px";
                 var img = $(this).data("bg-image");
 
                 $(this).css({
@@ -159,11 +159,11 @@
         if (($(".hero-slider .slide").length) || ($(".photography-hero-slider .slide").length)) {
             $(".hero-slider .slide, .photography-hero-slider .slide").each(function() {
                 var $this = $(this);
-                var img = ($this.find(".slider-bg").attr("src")) ? $this.find(".slider-bg").attr("src") : null ;
+                var img = ($this.find(".slider-bg").attr("src")) ? $this.find(".slider-bg").attr("src") : null;
 
-                if(img != null) {
+                if (img != null) {
                     $this.css({
-                        backgroundImage: "url("+ img +")",
+                        backgroundImage: "url(" + img + ")",
                         backgroundSize: "cover",
                         backgroundPosition: "center center"
                     })
@@ -200,25 +200,25 @@
                 dots: true,
                 fade: true,
                 cssEase: 'linear',
-                customPaging : function(slider, i) {
+                customPaging: function(slider, i) {
                     var thumb = $(slider.$slides[i]).data();
-                    if([i].length < 10) {
-                        return "<a>"+ "0" + (i+1) + "</a>";
+                    if ([i].length < 10) {
+                        return "<a>" + "0" + (i + 1) + "</a>";
                     } else {
-                        return "<a>" + (i+1) + "</a>";
+                        return "<a>" + (i + 1) + "</a>";
                     }
-                },                
+                },
             });
         }
     }
-    
+
 
 
     /*------------------------------------------
         = HIDE PRELOADER
     -------------------------------------------*/
     function preloader() {
-        if($('.preloader').length) {
+        if ($('.preloader').length) {
             $('.preloader').delay(100).fadeOut(500, function() {
 
                 //active wow
@@ -238,53 +238,53 @@
         = WOW ANIMATION SETTING
     -------------------------------------------*/
     var wow = new WOW({
-        boxClass:     'wow',      // default
+        boxClass: 'wow', // default
         animateClass: 'animated', // default
-        offset:       0,          // default
-        mobile:       true,       // default
-        live:         true        // default
+        offset: 0, // default
+        mobile: true, // default
+        live: true // default
     });
 
 
     /*------------------------------------------
         = ACTIVE POPUP IMAGE
-    -------------------------------------------*/  
+    -------------------------------------------*/
     if ($(".fancybox").length) {
         $(".fancybox").fancybox({
-            openEffect  : "elastic",
-            closeEffect : "elastic",
-            wrapCSS     : "project-fancybox-title-style"
+            openEffect: "elastic",
+            closeEffect: "elastic",
+            wrapCSS: "project-fancybox-title-style"
         });
     }
 
 
     /*------------------------------------------
         = POPUP VIDEO
-    -------------------------------------------*/  
+    -------------------------------------------*/
     if ($(".video-btn").length) {
-        $(".video-btn").on("click", function(){
+        $(".video-btn").on("click", function() {
             console.log("ASdf");
             $.fancybox({
                 href: this.href,
                 type: $(this).data("type"),
-                'title'         : this.title,
-                helpers     : {  
-                    title : { type : 'inside' },
-                    media : {}
+                'title': this.title,
+                helpers: {
+                    title: { type: 'inside' },
+                    media: {}
                 },
 
-                beforeShow : function(){
+                beforeShow: function() {
                     $(".fancybox-wrap").addClass("gallery-fancybox");
                 }
             });
             return false
-        });    
+        });
     }
 
 
     /*------------------------------------------
         = ACTIVE GALLERY POPUP IMAGE
-    -------------------------------------------*/  
+    -------------------------------------------*/
     if ($(".popup-gallery").length) {
         $('.popup-gallery').magnificPopup({
             delegate: 'a',
@@ -292,7 +292,7 @@
             autoFocusLast: false,
 
             gallery: {
-              enabled: true
+                enabled: true
             },
 
             zoom: {
@@ -304,7 +304,7 @@
                     return openerElement.is('img') ? openerElement : openerElement.find('img');
                 }
             }
-        });    
+        });
     }
 
     $('.popup-gmaps').magnificPopup({
@@ -323,7 +323,7 @@
         if ($(".sortable-gallery .gallery-filters").length) {
             var $container = $('.gallery-container');
             $container.isotope({
-                filter:'*',
+                filter: '*',
                 animationOptions: {
                     duration: 750,
                     easing: 'linear',
@@ -336,7 +336,7 @@
                 $(this).addClass('current');
                 var selector = $(this).attr('data-filter');
                 $container.isotope({
-                    filter:selector,
+                    filter: selector,
                     animationOptions: {
                         duration: 750,
                         easing: 'linear',
@@ -348,7 +348,7 @@
         }
     }
 
-    sortingGallery(); 
+    sortingGallery();
 
 
     /*------------------------------------------
@@ -356,21 +356,21 @@
     -------------------------------------------*/
     function masonryGridSetting() {
         if ($('.masonry-gallery').length) {
-            var $grid =  $('.masonry-gallery').masonry({
+            var $grid = $('.masonry-gallery').masonry({
                 itemSelector: '.grid-item',
                 columnWidth: '.grid-item',
                 percentPosition: true
             });
 
-            $grid.imagesLoaded().progress( function() {
+            $grid.imagesLoaded().progress(function() {
                 $grid.masonry('layout');
             });
         }
     }
 
     masonryGridSetting();
-	
-	
+
+
     /*------------------------------------------
         = STICKY HEADER
     -------------------------------------------*/
@@ -391,7 +391,7 @@
         if ($(window).scrollTop() >= 300) {
             var orgElement = $(".original");
             var coordsOrgElement = orgElement.offset();
-            var leftOrgElement = coordsOrgElement.left;  
+            var leftOrgElement = coordsOrgElement.left;
             var widthOrgElement = orgElement.css("width");
 
             $stickyClass.addClass($toggleClass);
@@ -421,7 +421,7 @@
     if ($(".header-search-area").length) {
         var serachFormBox = $(".header-search-area .header-search-form");
         var openSeachBtn = $(".header-search-area .open-btn");
-        
+
         $(document.body).append(serachFormBox);
         serachFormBox.hide();
 
@@ -446,13 +446,13 @@
         $('.counter').appear();
         $(document.body).on('appear', '.counter', function(e) {
             var $this = $(this),
-            countTo = $this.attr('data-count');
+                countTo = $this.attr('data-count');
 
-            $({ countNum: $this.text()}).animate({
+            $({ countNum: $this.text() }).animate({
                 countNum: countTo
             }, {
                 duration: 3000,
-                easing:'linear',
+                easing: 'linear',
                 step: function() {
                     $this.text(Math.floor(this.countNum));
                 },
@@ -471,32 +471,32 @@
         $(".business-team-slider").owlCarousel({
             smartSpeed: 300,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             responsive: {
-                0 : {
+                0: {
                     items: 1,
                     center: false
                 },
 
-                400 : {
+                400: {
                     items: 2,
                     center: false
                 },
 
-                992 : {
+                992: {
                     items: 3
                 }
             }
         });
-    }  
+    }
 
 
     // Animated scroll business statistic section
     if ($("#scroll").length) {
-        $('#scroll').on('click', function(e){     
+        $('#scroll').on('click', function(e) {
             e.preventDefault();
-            $('html,body').animate({scrollTop:$(this.hash).offset().top - 110}, 1000, "easeInOutExpo");
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top - 110 }, 1000, "easeInOutExpo");
             return false;
         });
     }
@@ -508,26 +508,26 @@
     -------------------------------------------*/
     if ($(".partners-slider").length) {
         $(".partners-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 300,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             responsive: {
-                0 : {
+                0: {
                     items: 2
                 },
 
-                400 : {
+                400: {
                     items: 3
                 },
 
-                550 : {
+                550: {
                     items: 4
                 },
 
-                992 : {
+                992: {
                     items: 5
                 }
             }
@@ -543,17 +543,17 @@
             //autoplay:true,
             smartSpeed: 300,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             nav: true,
             navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                768 : {
+                768: {
                     items: 2
                 }
             }
@@ -574,7 +574,7 @@
                     var percent = current_item.data('percent');
                     current_item.append('<span>' + percent + '%' + '</span>').css('width', percent + '%').addClass('appeared');
                 }
-                
+
             });
         };
     }
@@ -587,19 +587,19 @@
     -------------------------------------------*/
     if ($(".finance-testimonials-slider").length) {
         $(".finance-testimonials-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 300,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             nav: true,
             navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                600 : {
+                600: {
                     items: 2
                 }
             }
@@ -612,20 +612,20 @@
     -------------------------------------------*/
     if ($(".consulting-services-slider").length) {
         $(".consulting-services-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 300,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                650 : {
+                650: {
                     items: 2
                 },
 
-                1200 : {
+                1200: {
                     items: 3
                 }
             }
@@ -638,11 +638,11 @@
     -------------------------------------------*/
     if ($(".consulting-testimonials-slider").length) {
         $(".consulting-testimonials-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             items: 1,
             smartSpeed: 1000,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             nav: true,
             navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>']
@@ -667,15 +667,13 @@
             asNavFor: '.slider-for',
             focusOnSelect: true,
 
-            responsive: [
-                {
-                  breakpoint: 500,
-                  settings: {
+            responsive: [{
+                breakpoint: 500,
+                settings: {
                     slidesToShow: 3,
                     infinite: true
-                  }
                 }
-            ]
+            }]
         });
     }
 
@@ -688,17 +686,17 @@
             autoplay: true,
             smartSpeed: 600,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             nav: true,
             navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                650 : {
+                650: {
                     items: 2
                 }
             }
@@ -713,11 +711,11 @@
         var selector = $selector,
             windowWidth = window.innerWidth;
 
-        if((selector.length) && (windowWidth >= 768)) {
+        if ((selector.length) && (windowWidth >= 768)) {
             selector.addClass("mCustomScrollbar _mCS_1");
             selector.mCustomScrollbar({
-                axis:"x",
-                advanced:{
+                axis: "x",
+                advanced: {
                     autoExpandHorizontalScroll: true
                 },
                 mouseWheel: "disable"
@@ -728,34 +726,34 @@
         }
     }
 
-    if($(".construction-projects-grids").length) {
+    if ($(".construction-projects-grids").length) {
         setMcustomScrollBar($(".construction-projects-grids"));
     }
 
 
     /*------------------------------------------
         = CONSTRUCTION TEAM SLIDER
-    -------------------------------------------*/  
-    if($(".construction-team-slider".length)) {
+    -------------------------------------------*/
+    if ($(".construction-team-slider".length)) {
         $(".construction-team-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 300,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             nav: true,
-            navText: ['<i class="fa fa-arrow-left">','<i class="fa fa-arrow-right">'],
+            navText: ['<i class="fa fa-arrow-left">', '<i class="fa fa-arrow-right">'],
             dots: false,
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                450 : {
+                450: {
                     items: 2
                 },
 
-                700 : {
+                700: {
                     items: 3
                 }
             }
@@ -765,41 +763,41 @@
 
     /*------------------------------------------
         =   BLOG SLIDER
-    -------------------------------------------*/  
-    if($(".blog-slider".length)) {
+    -------------------------------------------*/
+    if ($(".blog-slider".length)) {
         $(".blog-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             items: 1,
             smartSpeed: 500,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             nav: true,
-            navText: ['<i class="fa fa-angle-left">','<i class="fa fa-angle-right">'],
+            navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
         });
     }
 
 
     /*------------------------------------------
         = ATTORNEYS SLIDER
-    -------------------------------------------*/  
-    if($(".attorneys-slider".length)) {
+    -------------------------------------------*/
+    if ($(".attorneys-slider".length)) {
         $(".attorneys-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 300,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                550 : {
+                550: {
                     items: 2
                 },
 
-                992 : {
+                992: {
                     items: 3
                 }
             }
@@ -809,27 +807,27 @@
 
     /*------------------------------------------
         = EVENT START CLOCK
-    -------------------------------------------*/  
+    -------------------------------------------*/
     if ($("#event-start-clock").length) {
         $('#event-start-clock').countdown('2018/06/31', function(event) {
-            var $this = $(this).html(event.strftime(''
-            + '<div class="box"><span>Days</span> <div>%D</div></div>'
-            + '<div class="box"><span>Hours</span> <div>%H </div></div>'
-            + '<div class="box"><span>Mins</span> <div>%M</div></div>'
-            + '<div class="box"><span>Secs</span> <div>%S</div></div>'));
+            var $this = $(this).html(event.strftime('' +
+                '<div class="box"><span>Days</span> <div>%D</div></div>' +
+                '<div class="box"><span>Hours</span> <div>%H </div></div>' +
+                '<div class="box"><span>Mins</span> <div>%M</div></div>' +
+                '<div class="box"><span>Secs</span> <div>%S</div></div>'));
         });
     }
 
 
     /*------------------------------------------
         = EVENT TESTIMONIALS SLIDER
-    -------------------------------------------*/  
-    if($(".event-testimonials-slider".length)) {
+    -------------------------------------------*/
+    if ($(".event-testimonials-slider".length)) {
         $(".event-testimonials-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 500,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             items: 1,
             dots: false,
         });
@@ -838,14 +836,14 @@
 
     /*------------------------------------------
         = APP LANDING TESTIMONIALS SLIDER
-    -------------------------------------------*/  
-    if($(".app-landing-testimonials-slider".length)) {
+    -------------------------------------------*/
+    if ($(".app-landing-testimonials-slider".length)) {
         $(".app-landing-testimonials-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             loop: true,
             smartSpeed: 1000,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             items: 1,
             dots: false,
             nav: true,
@@ -856,7 +854,7 @@
 
     /*------------------------------------------
         = APP LANDING SCREENSHOT SLIDER
-    -------------------------------------------*/  
+    -------------------------------------------*/
     // if($(".app-landing-screenshot-slider".length)) {
     //     $(".app-landing-screenshot-slider").owlCarousel({
     //         autoplay:true,
@@ -873,17 +871,17 @@
 
     if ($(".app-screenshot-slider").length) {
         $(".app-screenshot-slider").owlCarousel({
-            loop:true,
-            margin:50,
+            loop: true,
+            margin: 50,
             items: 1,
             smartSpeed: 700,
             autoplay: false,
             dots: false,
-            nav:true,
-            navText: [ '<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>' ],
+            nav: true,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
         });
     }
-    
+
 
 
     /*------------------------------------------
@@ -891,20 +889,20 @@
     -------------------------------------------*/
     if ($(".minimal-portfolio-testimonials-slider").length) {
         $(".minimal-portfolio-testimonials-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 1000,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             nav: true,
             navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                992 : {
+                992: {
                     items: 2
                 }
             }
@@ -917,21 +915,21 @@
     -------------------------------------------*/
     if ($(".sermons-slider").length) {
         $(".sermons-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 600,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                650 : {
+                650: {
                     items: 2
                 },
 
-                1200 : {
+                1200: {
                     items: 3
                 }
             }
@@ -940,10 +938,10 @@
 
 
     /*------------------------------------------
-        = CHURCH UPCOMMING EVENT SLIDER
+        = muslim UPCOMMING EVENT SLIDER
     -------------------------------------------*/
-    if ($(".church-upcoming-events-slider").length) {
-        $(".church-upcoming-events-slider").slick({
+    if ($(".muslim-upcoming-events-slider").length) {
+        $(".muslim-upcoming-events-slider").slick({
             slidesToShow: 3,
             centerPadding: "10px",
             infinite: true,
@@ -953,7 +951,7 @@
             arrows: false,
             focusOnSelect: false,
             adaptiveHeight: true,
-        });   
+        });
     }
 
 
@@ -963,11 +961,11 @@
     -------------------------------------------*/
     if ($(".charch-quote-slider").length) {
         $(".charch-quote-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             items: 1,
             smartSpeed: 1000,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             nav: true,
             navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
@@ -978,26 +976,26 @@
     /*------------------------------------------
         = CHARCH QUOTE SLIDER
     -------------------------------------------*/
-    if ($(".church-causes-slider").length) {
-        $(".church-causes-slider").owlCarousel({
-            autoplay:true,
+    if ($(".muslim-causes-slider").length) {
+        $(".muslim-causes-slider").owlCarousel({
+            autoplay: true,
             smartSpeed: 1000,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             margin: 30,
             dots: false,
             nav: true,
             navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                700 : {
+                700: {
                     items: 2
                 },
 
-                1200 : {
+                1200: {
                     items: 3
                 }
             }
@@ -1008,11 +1006,11 @@
     /*------------------------------------------
         = HOTEM HOME RESERVATION CALENDER
     -------------------------------------------*/
-    if($(".calender-date").length) {
+    if ($(".calender-date").length) {
         $(".calender-date").each(function() {
             var dateNow = new Date();
             var locale = "en-us";
-            var curMonth = dateNow.toLocaleString(locale, {month: "long"});
+            var curMonth = dateNow.toLocaleString(locale, { month: "long" });
             var curDay = dateNow.getDate();
             var month = $(".cur-month");
             var day = $(".cur-day");
@@ -1027,7 +1025,7 @@
                     down: "fa fa-arrow-down"
                 },
                 format: 'DD MMMM YYYY',
-                defaultDate:dateNow
+                defaultDate: dateNow
 
             });
 
@@ -1088,11 +1086,11 @@
     -------------------------------------------*/
     if ($(".hotel-deal-slider").length) {
         $(".hotel-deal-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 1000,
             items: 1,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
         });
     }
 
@@ -1102,29 +1100,29 @@
     -------------------------------------------*/
     if ($(".hotel-dining-slider").length) {
         $(".hotel-dining-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 1000,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                550 : {
+                550: {
                     items: 2
                 },
 
-                768 : {
+                768: {
                     items: 3
                 },
 
-                992 : {
+                992: {
                     items: 4
                 },
 
-                1400 : {
+                1400: {
                     items: 5
                 }
             }
@@ -1145,13 +1143,11 @@
             arrows: false,
             focusOnSelect: false,
             adaptiveHeight: true,
-            responsive: [
-                {
-                    breakpoint: 450,
-                    settings: "unslick"
-                },
-            ]
-        });   
+            responsive: [{
+                breakpoint: 450,
+                settings: "unslick"
+            }, ]
+        });
     }
 
 
@@ -1160,28 +1156,28 @@
     -------------------------------------------*/
     if ($(".medical-departments-slider").length) {
         $(".medical-departments-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 1000,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             margin: 25,
             dots: false,
             nav: true,
             navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                550 : {
+                550: {
                     items: 2
                 },
 
-                768 : {
+                768: {
                     items: 2
                 },
 
-                1200 : {
+                1200: {
                     items: 3
                 },
             }
@@ -1202,25 +1198,25 @@
     -------------------------------------------*/
     if ($(".medical-doctors-slider").length) {
         $(".medical-doctors-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 500,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             margin: 25,
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                550 : {
+                550: {
                     items: 2
                 },
 
-                768 : {
+                768: {
                     items: 3
                 },
 
-                1200 : {
+                1200: {
                     items: 4
                 },
             }
@@ -1233,28 +1229,28 @@
     -------------------------------------------*/
     if ($(".gym-programs-slider").length) {
         $(".gym-programs-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             smartSpeed: 500,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                550 : {
+                550: {
                     items: 2
                 },
 
-                768 : {
+                768: {
                     items: 3
                 },
 
-                1200 : {
+                1200: {
                     items: 5
                 },
 
-                1500 : {
+                1500: {
                     items: 6
                 },
             }
@@ -1269,26 +1265,26 @@
         $(".gym-gallery-slider").owlCarousel({
             //autoplay:true,
             smartSpeed: 500,
-            loop:true,
+            loop: true,
             center: true,
             dots: false,
             nav: true,
-            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],            
-            autoplayHoverPause:true,
+            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            autoplayHoverPause: true,
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                550 : {
+                550: {
                     items: 2
                 },
 
-                768 : {
+                768: {
                     items: 3
                 },
 
-                1200 : {
+                1200: {
                     items: 5
                 }
             }
@@ -1304,18 +1300,18 @@
             autoplay: true,
             smartSpeed: 600,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                650 : {
+                650: {
                     items: 2
                 },
 
-                1200 : {
+                1200: {
                     items: 3
                 }
             }
@@ -1326,7 +1322,7 @@
     /*------------------------------------------
         = RESTAURANT RESERVE DATE PICKER
     -------------------------------------------*/
-    if($("#restaurant-reserve-datetime-picker").length) {
+    if ($("#restaurant-reserve-datetime-picker").length) {
         $('#restaurant-reserve-datetime-picker').datetimepicker();
     }
 
@@ -1334,7 +1330,7 @@
     /*------------------------------------------
         = RESTAURANT RESERVE TIME PICKER
     -------------------------------------------*/
-    if($('#restaurant-reserve-time').length) {
+    if ($('#restaurant-reserve-time').length) {
         $('#restaurant-reserve-time').clockpicker({
             placement: 'bottom',
             align: 'left',
@@ -1347,26 +1343,26 @@
     /*------------------------------------------
         = RESTAURANT CHEFS SLIDER
     -------------------------------------------*/
-    if($(".restaurant-chefs-slider").length) {
+    if ($(".restaurant-chefs-slider").length) {
         $(".restaurant-chefs-slider").owlCarousel({
             autoplay: true,
             smartSpeed: 600,
             margin: 30,
             stagepadding: 10,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             nav: true,
             navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                650 : {
+                650: {
                     items: 2
                 },
 
-                1200 : {
+                1200: {
                     items: 2
                 }
             }
@@ -1377,21 +1373,21 @@
     /*------------------------------------------
         = RESTAURANT TESTIMONIALS SLIDER
     -------------------------------------------*/
-    if($(".restaurant-testimonials-slider").length) {
+    if ($(".restaurant-testimonials-slider").length) {
         $(".restaurant-testimonials-slider").owlCarousel({
             autoplay: true,
             smartSpeed: 600,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             nav: true,
             navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                992 : {
+                992: {
                     items: 2
                 }
             }
@@ -1402,29 +1398,29 @@
     /*------------------------------------------
         = PHOTOGRAPHY BLOG SLIDER
     -------------------------------------------*/
-    if($(".photography-blog-slider").length) {
+    if ($(".photography-blog-slider").length) {
         $(".photography-blog-slider").owlCarousel({
             autoplay: true,
             smartSpeed: 600,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             nav: true,
             navText: ['<i class="fa fa-long-arrow-left"></i>', '<i class="fa fa-long-arrow-right"></i>'],
             responsive: {
-                0 : {
+                0: {
                     items: 1
                 },
 
-                500 : {
+                500: {
                     items: 2
                 },
 
-                992 : {
+                992: {
                     items: 3
                 },
 
-                1200 : {
+                1200: {
                     items: 4
                 }
             }
@@ -1437,11 +1433,11 @@
     -------------------------------------------*/
     if ($(".agency-testimonials-slider").length) {
         $(".agency-testimonials-slider").owlCarousel({
-            autoplay:true,
+            autoplay: true,
             items: 1,
             smartSpeed: 1000,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             dots: false,
             nav: true,
             navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>']
@@ -1457,25 +1453,25 @@
             // autoplay:true,
             smartSpeed: 300,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             responsive: {
-                0 : {
+                0: {
                     items: 1,
                     center: false
                 },
 
-                551 : {
+                551: {
                     items: 2,
                     center: false
                 },
 
-                992 : {
+                992: {
                     items: 3
                 }
             }
         });
-    } 
+    }
 
 
     /*------------------------------------------
@@ -1486,29 +1482,29 @@
             // autoplay:true,
             smartSpeed: 300,
             margin: 30,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             nav: true,
             navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
             responsive: {
-                0 : {
+                0: {
                     items: 1,
                 },
 
-                500 : {
+                500: {
                     items: 2,
                 },
 
-                992 : {
+                992: {
                     items: 3,
                 },
 
-                1200 : {
+                1200: {
                     items: 4
                 }
             }
         });
-    } 
+    }
 
 
     /*------------------------------------------
@@ -1519,31 +1515,31 @@
             // autoplay:true,
             items: 1,
             smartSpeed: 300,
-            loop:true,
-            autoplayHoverPause:true,
+            loop: true,
+            autoplayHoverPause: true,
             nav: true,
             navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
             dots: false
         });
-    } 
+    }
 
 
 
-    
+
 
 
     /*------------------------------------------
         = GOOGLE MAP
-    -------------------------------------------*/  
+    -------------------------------------------*/
     function map(MapId) {
 
         var locations = [
-            ['Hotel royal international khulna ', 22.8103888, 89.5619609,1],
-            ['City inn khulna', 22.820884, 89.551216,2],
+            ['Hotel royal international khulna ', 22.8103888, 89.5619609, 1],
+            ['City inn khulna', 22.820884, 89.551216, 2],
         ];
 
         var map = new google.maps.Map(document.getElementById(MapId), {
-            center: new google.maps.LatLng( 22.8103888, 89.5619609),
+            center: new google.maps.LatLng(22.8103888, 89.5619609),
             zoom: 12,
             scrollwheel: false,
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -1554,11 +1550,11 @@
 
         var marker, i;
 
-        for (i = 0; i < locations.length; i++) {  
-                marker = new google.maps.Marker({
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                 map: map,
-                icon:'assets/images/map-marker.png'
+                icon: 'assets/images/map-marker.png'
             });
 
             google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -1568,16 +1564,16 @@
                 }
             })(marker, i));
         }
-    }; 
+    };
 
     function grayGoogleMap(MapId, icon) {
 
         var locations = [
-            ['City inn khulna', 22.820884, 89.551216,2],
+            ['City inn khulna', 22.820884, 89.551216, 2],
         ];
 
         var map = new google.maps.Map(document.getElementById(MapId), {
-            center: new google.maps.LatLng( 22.8103888, 89.5619609),
+            center: new google.maps.LatLng(22.8103888, 89.5619609),
             zoom: 14,
             scrollwheel: false,
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -1588,8 +1584,8 @@
 
         var marker, i;
 
-        for (i = 0; i < locations.length; i++) {  
-                marker = new google.maps.Marker({
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                 map: map,
                 icon: icon
@@ -1603,13 +1599,10 @@
             })(marker, i));
         }
 
-        map.set('styles',
-            [
-                {
+        map.set('styles', [{
                     "featureType": "water",
                     "elementType": "geometry",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#e9e9e9"
                         },
                         {
@@ -1620,8 +1613,7 @@
                 {
                     "featureType": "landscape",
                     "elementType": "geometry",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#f5f5f5"
                         },
                         {
@@ -1632,8 +1624,7 @@
                 {
                     "featureType": "road.highway",
                     "elementType": "geometry.fill",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#ffffff"
                         },
                         {
@@ -1644,8 +1635,7 @@
                 {
                     "featureType": "road.highway",
                     "elementType": "geometry.stroke",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#ffffff"
                         },
                         {
@@ -1659,8 +1649,7 @@
                 {
                     "featureType": "road.arterial",
                     "elementType": "geometry",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#ffffff"
                         },
                         {
@@ -1671,8 +1660,7 @@
                 {
                     "featureType": "road.local",
                     "elementType": "geometry",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#ffffff"
                         },
                         {
@@ -1683,8 +1671,7 @@
                 {
                     "featureType": "poi",
                     "elementType": "geometry",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#f5f5f5"
                         },
                         {
@@ -1695,8 +1682,7 @@
                 {
                     "featureType": "poi.park",
                     "elementType": "geometry",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#dedede"
                         },
                         {
@@ -1706,8 +1692,7 @@
                 },
                 {
                     "elementType": "labels.text.stroke",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "visibility": "on"
                         },
                         {
@@ -1720,8 +1705,7 @@
                 },
                 {
                     "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "saturation": 36
                         },
                         {
@@ -1734,17 +1718,14 @@
                 },
                 {
                     "elementType": "labels.icon",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
                 },
                 {
                     "featureType": "transit",
                     "elementType": "geometry",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#f2f2f2"
                         },
                         {
@@ -1755,8 +1736,7 @@
                 {
                     "featureType": "administrative",
                     "elementType": "geometry.fill",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#fefefe"
                         },
                         {
@@ -1767,8 +1747,7 @@
                 {
                     "featureType": "administrative",
                     "elementType": "geometry.stroke",
-                    "stylers": [
-                        {
+                    "stylers": [{
                             "color": "#fefefe"
                         },
                         {
@@ -1780,47 +1759,47 @@
                     ]
                 }
             ]
-        
+
         );
-    }; 
+    };
 
 
 
     /*==========================================================================
         WHEN DOCUMENT LOADING 
     ==========================================================================*/
-        $(window).on('load', function() {
+    $(window).on('load', function() {
 
-            preloader();
+        preloader();
 
-            sliderBgSetting();
-			
-            toggleMobileNavigation();
+        sliderBgSetting();
 
-            smallNavFunctionality();
+        toggleMobileNavigation();
 
-            if($("#map").length) {
-                map("map");
-            }
+        smallNavFunctionality();
 
-            if($("#photography-contact-map").length) {
-                grayGoogleMap("photography-contact-map", "assets/images/photography-map-marker.jpg");
-            }
+        if ($("#map").length) {
+            map("map");
+        }
 
-            if($("#agency-contact-map").length) {
-                grayGoogleMap("agency-contact-map", "assets/images/agency-map-marker.png");
-            }          
+        if ($("#photography-contact-map").length) {
+            grayGoogleMap("photography-contact-map", "assets/images/photography-map-marker.jpg");
+        }
 
-            if ((window.innerWidth >= 992) && (!$("body").hasClass("photography-home"))) {
-                smoothScrolling($("#navbar > ul > li > a[href^='#']"), $(".navigation-holder").innerHeight());
-            } else if (($(".photography-home").length) && (window.innerWidth >= 992)) {
-                smoothScrolling($("#navbar > ul > li > a[href^='#']"), 0);
-            } else {
-                smoothScrolling($("#navbar > ul > li > a[href^='#']"), 70);
-            }   
+        if ($("#agency-contact-map").length) {
+            grayGoogleMap("agency-contact-map", "assets/images/agency-map-marker.png");
+        }
 
-            sortingGallery();         
-        });
+        if ((window.innerWidth >= 992) && (!$("body").hasClass("photography-home"))) {
+            smoothScrolling($("#navbar > ul > li > a[href^='#']"), $(".navigation-holder").innerHeight());
+        } else if (($(".photography-home").length) && (window.innerWidth >= 992)) {
+            smoothScrolling($("#navbar > ul > li > a[href^='#']"), 0);
+        } else {
+            smoothScrolling($("#navbar > ul > li > a[href^='#']"), 70);
+        }
+
+        sortingGallery();
+    });
 
 
 
@@ -1829,27 +1808,27 @@
     ==========================================================================*/
     $(window).on("scroll", function() {
 
-		if ($(".site-header").length) {
-            stickIt($(".sticky-header"), "sticky-on"); 
+        if ($(".site-header").length) {
+            stickIt($(".sticky-header"), "sticky-on");
         }
 
         activeMenuItem($(".navigation-holder"));
     });
 
-    
+
     /*==========================================================================
         WHEN WINDOW RESIZE
     ==========================================================================*/
     $(window).on("resize", function() {
-        
+
         toggleClassForSmallNav();
 
-        if($(".construction-projects-grids").length) {
+        if ($(".construction-projects-grids").length) {
             setMcustomScrollBar($(".construction-projects-grids"));
         }
-        
+
         clearTimeout($.data(this, 'resizeTimer'));
-        
+
         $.data(this, 'resizeTimer', setTimeout(function() {
             smallNavFunctionality();
         }, 200));
